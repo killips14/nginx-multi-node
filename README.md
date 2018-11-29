@@ -8,4 +8,4 @@ Multiple Nodejs servers on NGINX configuration
 > docker-compose up -d
 
 # Start up containers, but rebuild again to get all changes
-> docker-compose up —build
+> docker-compose up --build
