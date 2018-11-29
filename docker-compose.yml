@@ -1,0 +1,38 @@
+version : '3'
+
+# containter types
+services:
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - "3050:80"
+  node1:
+    build:
+      dockerfile: Dockerfile
+      context: ./node1
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - ./node1:/app
+  node2:
+    build:
+      dockerfile: Dockerfile
+      context: ./node2      
+    ports:
+      - "3001:3001"
+    volumes:
+      - /app/node_modules
+      - ./node2:/app
+  node3:
+    build:
+      dockerfile: Dockerfile
+      context: ./node3      
+    ports:
+      - "3002:3002"
+    volumes:
+      - /app/node_modules
+      - ./node3:/app      
